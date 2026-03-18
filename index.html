@@ -9,43 +9,116 @@
     html, body { height: 100%; }
     body {
       display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: system-ui, -apple-system, sans-serif;
       background: #fff;
       color: #111;
     }
 
-    .tagline {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      max-width: 420px;
+    .left, .right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .right {
+      position: relative;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .mono {
       font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
       font-size: 0.7rem;
       line-height: 1.5;
       text-transform: uppercase;
       color: #111;
     }
-    .past-events {
-      position: fixed;
-      bottom: 2rem;
-      left: 2rem;
+
+    .tagline { max-width: 420px; }
+    .past-events { max-width: 420px; }
+    .past-events strong { font-weight: 700; }
+
+    .event-card {
+      width: 100%;
       max-width: 420px;
-      font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
-      font-size: 0.7rem;
-      line-height: 1.5;
-      text-transform: uppercase;
-      color: #111;
-      text-align: left;
     }
-    .past-events strong {
+
+    .event-card__cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .event-card__title {
+      font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
+      font-size: 1.2rem;
       font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .event-card__details {
+      font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
+      font-size: 0.7rem;
+      line-height: 1.8;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .event-card__cta {
+      display: inline-block;
+      font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      background: #111;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+    .event-card__cta:hover {
+      background: #333;
     }
   </style>
 </head>
 <body>
-  <p class="past-events"><strong style="color: #4c8bf5;">Past Events</strong> — <strong>05/02/26</strong> Simon Amor (Sling). Domingo Widen (Intercom). ÌníOlúwa Abíódún (Intercom). <strong>02/03/26</strong> Rich Cahill (Lovable). Ben Strak (Monzo).</p>
-  <p class="tagline">A monthly(ish) AI meetup for London designers, hosted by Tom Harman and Simon Amor. Get hands-on with AI tools and unpack what they mean for the future of design.</p>
+  <div class="left">
+    <div class="event-card">
+      <img
+        class="event-card__cover"
+        src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=500,height=500/gallery-images/ve/ab94b70b-d954-410a-b686-1a32c74a4d75.png"
+        alt="Ai x Design"
+      >
+      <h2 class="event-card__title">Ai x Design Morning</h2>
+      <div class="event-card__details">
+        Wednesday, 2 April 2026<br>
+        09:00 – 12:00<br>
+        48-50 Scrutton St, London EC2A 4HH
+      </div>
+      <button
+        class="event-card__cta luma-checkout--button"
+        type="button"
+        data-luma-action="checkout"
+        data-luma-event-id="evt-mGv9SfBsLWYM3E9"
+      >Request to Join</button>
+    </div>
+  </div>
+  <div class="right">
+    <p class="mono tagline">A monthly(ish) AI meetup for London designers, hosted by Tom Harman and Simon Amor. Get hands-on with AI tools and unpack what they mean for the future of design.</p>
+    <p class="mono past-events"><strong style="color: #4c8bf5;">Past Events</strong> — <strong>05/02/26</strong> Simon Amor (Sling). Domingo Widen (Intercom). ÌníOlúwa Abíódún (Intercom). <strong>02/03/26</strong> Rich Cahill (Lovable). Ben Strak (Monzo).</p>
+  </div>
+
+  <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 </body>
 </html>
